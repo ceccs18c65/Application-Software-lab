@@ -1,4 +1,7 @@
 # Application-Software-lab
+
+ #Lab1
+
 #a
 CREATE TABLE student (
 	sno INT AUTO_INCREMENT PRIMARY KEY,
