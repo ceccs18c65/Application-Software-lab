@@ -79,3 +79,23 @@ insert into employee_detail values(5,"E4","Purchasing");
 
  #3
  select * from employe where emp_id in (select emp_id from employee_detail);
+
+# Aplication-Software-Development-Lab4
+
+#1
+use emdb;
+create table department(Code varchar(10),Title varchar(10),Dept_name varchar(10),Dept_id varchar(5),
+Salary int(6),primary key(Code),unique(Dept_name),check(Salary>2000));
+insert into department values("D1","ABC","Designing","D1234",15000);
+insert into department values("D2","DEF","Marketing","M5678",25000);
+insert into department values("D3","GHI","Finance","F9101",10000);
+insert into department values("D4","JKL","HR","H1213",20000);
+select * from department;
+
+#2
+create table instructor(Name varchar(20) not null,Code varchar(10),ID int(5) default 00023);
+insert into instructor values("Shijin","D1",00012);
+insert into instructor values("Binu","D2",00043);
+insert into instructor values("Elvin","D3",00056);
+insert into instructor values("Amith","D4",00098);
+select * from instructor;
