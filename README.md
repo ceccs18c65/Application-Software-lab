@@ -100,3 +100,29 @@ insert into instructor values("Binu","D2",00043);
 insert into instructor values("Elvin","D3",00056);
 insert into instructor values("Amith","D4",00098);
 select * from instructor;
+
+# Application-Software-Development-Lab5
+
+Assignment -5
+
+a)
+create table class(id varchar(3),name char(10));
+
+b)
+insert into class values("a0","Amal"),("a1","Binu");
+
+c)
+select * from class;
+
+d)
+set autocommit=0;
+start transaction;
+insert into class values("a2","vivek");
+select * from class;
+savepoint class1;
+insert into class values("a3","Arun");
+select * from class;
+savepoint class2;
+rollback to class1;
+select * from class;
+commit;
