@@ -126,3 +126,32 @@ savepoint class2;
 rollback to class1;
 select * from class;
 commit;
+
+
+# Application-Software-Development-Lab6
+
+Assignment -6
+ASD_Lab_Experiment
+
+#a
+create table store(order_no int(5),code varchar(10),item varchar(20),quantity int(2),price int(5),discound int(2),MRP int(5),primary key(order_no));
+
+#b
+insert into store values(10001,'A10001','onion',2,180,30,150);
+insert into store values(10002,'A20001','tyre',1,559,25,720);
+insert into store values(10003,'A30001','birlas',2,432,50,832);
+insert into store values(10004,'A40001','juvain',4,1300,60,1500);
+
+#c
+select * from store;
+
+#d
+create view itm_qnty as select item,quantity from store;
+
+#e
+select * from itm_qty;
+
+#f
+drop view itm_qnty;
+
+
