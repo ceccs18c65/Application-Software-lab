@@ -155,3 +155,28 @@ select * from itm_qty;
 drop view itm_qnty;
 
 
+#Application-Software-Development-Lab7
+
+
+Assignment -7
+ASD_Lab_Experiment
+#a
+create table store(order_no int(5),code varchar(10),item varchar(20),quantity int(2),price int(5),discound int(2),mrp int(5),primary key(order_no));
+
+#b
+insert into store values(10001,"a0001","aazz",2,649,30,879);
+insert into store values(10002,"a0002","bbzz",1,559,25,720);
+insert into store values(10003,"a0003","cczz",2,432,50,832);
+insert into store values(10004,"a0004","cczz",3,800,30,1255);
+
+#c
+select * from store;
+
+#d
+select mod(price,9) from store;
+
+#e
+select price,power(price,2) from store;
+
+#f
+select round(quantity div 7) from store;
