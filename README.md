@@ -159,7 +159,9 @@ drop view itm_qnty;
 
 
 Assignment -7
+
 ASD_Lab_Experiment
+
 #a
 create table store(order_no int(5),code varchar(10),item varchar(20),quantity int(2),price int(5),discound int(2),mrp int(5),primary key(order_no));
 
