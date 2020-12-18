@@ -155,7 +155,7 @@ select * from itm_qty;
 drop view itm_qnty;
 
 
-#Application-Software-Development-Lab7
+# Application-Software-Development- Lab7
 
 
 Assignment -7
