@@ -187,6 +187,7 @@ select round(quantity div 7) from store;
 # Application-Software-Development-Lab8
 
 Assignment -8
+
 ASD_Lab_Experiment
 
 #1
