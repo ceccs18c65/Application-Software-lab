@@ -206,3 +206,25 @@ select avg(salary) from employe;
 select min(salary) from employe;
 #7
 select count(*) from employe;
+
+# Application-Software-Development-Lab9
+
+Assignment -9
+
+ASD_Lab_Experiment
+
+#1
+create table employee(code char(4) primary key,name varchar(60),dob date,designation varchar(80),salary float);
+insert into employee(code,name,dob,designation,salary)values('abc1','Shijin','1997-11-12','ceo',19000),
+('abc2','Arun','1998-12-12','sales',20000),('abc3','Abin','2001-07-05','hr',45000);
+#2
+select code,name,designation from employee order by name desc;
+
+#3
+create table deposit(baccno bigint(20),branch_name varchar(20),amount float);
+insert into deposit(baccno,branch_name,amount)values(12345,'Pathanamthitta',100000),
+(67891,'Pathanamthitta',250000),(11121,'Pathanamthitta',223000);
+insert into deposit values(12131,'Edayaranmula',180300);
+insert into deposit values(14145,'Edayaranmula',500000);
+#4
+select branch_name,count(baccno),sum(amount)from deposit group by  branch_name;
