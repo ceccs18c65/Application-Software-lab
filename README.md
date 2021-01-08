@@ -182,3 +182,26 @@ select price,power(price,2) from store;
 
 #f
 select round(quantity div 7) from store;
+
+
+# Application-Software-Development-Lab8
+
+Assignment -8
+ASD_Lab_Experiment
+
+#1
+create table employe(code char(6) primary key,name varchar(10),dob date,designation varchar(20),salary float);
+#2
+insert into employe(code,name,dob,designation,salary) values('abc1','Shijin','1997-11-12','Clerk',25000)
+,('abc2','Binu','1997-05-05','AC mechanic',35000),('abc3','Alan','1999-11-02','Clerk',20000),
+('abc4','Rijo','2000-01-12','Marketing Executive',30000);
+#3
+select sum(salary) from employe where designation='Clerk';
+#4
+select max(salary) from employe;
+#5
+select avg(salary) from employe;
+#6
+select min(salary) from employe;
+#7
+select count(*) from employe;
