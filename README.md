@@ -218,6 +218,7 @@ ASD_Lab_Experiment
 create table employee(code char(4) primary key,name varchar(60),dob date,designation varchar(80),salary float);
 insert into employee(code,name,dob,designation,salary)values('abc1','Shijin','1997-11-12','ceo',19000),
 ('abc2','Arun','1998-12-12','sales',20000),('abc3','Abin','2001-07-05','hr',45000);
+
 #2
 select code,name,designation from employee order by name desc;
 
