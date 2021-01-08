@@ -192,6 +192,7 @@ ASD_Lab_Experiment
 
 #1
 create table employe(code char(6) primary key,name varchar(10),dob date,designation varchar(20),salary float);
+
 #2
 insert into employe(code,name,dob,designation,salary) values('abc1','Shijin','1997-11-12','Clerk',25000)
 ,('abc2','Binu','1997-05-05','AC mechanic',35000),('abc3','Alan','1999-11-02','Clerk',20000),
@@ -226,5 +227,6 @@ insert into deposit(baccno,branch_name,amount)values(12345,'Pathanamthitta',1000
 (67891,'Pathanamthitta',250000),(11121,'Pathanamthitta',223000);
 insert into deposit values(12131,'Edayaranmula',180300);
 insert into deposit values(14145,'Edayaranmula',500000);
+
 #4
 select branch_name,count(baccno),sum(amount)from deposit group by  branch_name;
