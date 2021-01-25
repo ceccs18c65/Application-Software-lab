@@ -231,3 +231,121 @@ insert into deposit values(14145,'Edayaranmula',500000);
 
 #4
 select branch_name,count(baccno),sum(amount)from deposit group by  branch_name;
+
+
+# Application-Software-Development-Lab10
+Assignment-10
+
+
+CREATE TABLE CUR (
+	name CHAR(10),
+    dob DATE,
+    salary INT(11)
+);
+
+DELIMITER //
+
+CREATE PROCEDURE IMP()
+BEGIN
+	DECLARE done INT DEFAULT FALSE;
+    DECLARE emp_name CHAR(10);
+    DECLARE emp_dob DATE;
+    DECLARE emp_salary INT(11);
+    DECLARE emp_record CURSOR FOR SELECT name,dob,salary FROM employee;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN emp_record;
+    read_loop: LOOP
+		FETCH emp_record INTO emp_name,emp_dob,emp_salary;
+        IF done THEN
+			LEAVE read_loop;
+		END IF;
+        INSERT INTO CUR VALUES(emp_name,emp_dob,emp_salary);
+	END LOOP;
+    CLOSE emp_record;
+END;//
+DELIMITER ;
+
+CALL IMP();
+
+SELECT * FROM CUR;
+
+
+# Application-Software-Development-Lab11
+
+Experiment-11
+
+
+CREATE TABLE EMPLOYEE (
+CODE VARCHAR(10),
+NAME CHAR(20),
+DOB DATE NOT NULL,
+DESIGNATION CHAR(25),
+SALARY INT
+);
+INSERT INTO EMPLOYEE VALUES ('E69','AMINA','1990-06-14','CLERK','40000');
+INSERT INTO EMPLOYEE VALUES ('E37','RAHUL','1989-12-08','PROJECT DESGINER','60000');
+INSERT INTO EMPLOYEE VALUES ('E93','MANEESHA','1992-02-18','SALES MANAGER','50000');
+INSERT INTO EMPLOYEE VALUES ('E08','ADITYA','1992-04-22','CLERK','40000');
+INSERT INTO EMPLOYEE VALUES ('E29','RADIKA','1984-09-26','ACCOUNTANT','48000');
+
+DELIMITER $$
+CREATE TRIGGER INSERT_PREVENT
+BEFORE INSERT
+ON EMPLOYEE FOR EACH ROW
+BEGIN
+IF (CURRENT_TIME() BETWEEN '17:00' AND '00:00' ) THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'NO CHANGES TO EMPLOYEE TABLE';
+END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER UPDATE_PREVENT
+BEFORE UPDATE
+ON EMPLOYEE FOR EACH ROW
+BEGIN
+IF (CURRENT_TIME() BETWEEN '17:00' AND '00:00' ) THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'NO CHANGES TO EMPLOYEE TABLE';
+END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER DELETE_PREVENT
+BEFORE DELETE
+ON EMPLOYEE FOR EACH ROW
+BEGIN
+IF (CURRENT_TIME() BETWEEN '17:00' AND '00:00' ) THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'NO CHANGES TO EMPLOYEE TABLE';
+END IF;
+END $$
+DELIMITER ;
+
+# Application-Software-Development-Lab12
+
+Experiment-12
+
+
+SELECT a.sid, a.sname, a.rating, a.age
+FROM sailors AS a
+INNER JOIN reserves AS c ON a.sid = c.sid AND c.bid =101;
+
+SELECT b.bname
+FROM reserves AS c
+INNER JOIN sailors AS a ON a.sid = c.sid AND a.sname = 'Bob'
+INNER JOIN boats AS b ON b.bid = c.bid;
+
+SELECT a.sname
+FROM sailors AS a
+INNER JOIN reserves AS c ON a.sid = c.sid
+INNER JOIN boats AS b ON b.bid = c.bid AND b.colour = 'red'
+ORDER BY a.age;
+
+SELECT DISTINCT a.sname
+FROM sailors AS a
+INNER JOIN reserves AS c ON a.sid IN (c.sid);
+
+SELECT a.sid,a.sname
+FROM reserves AS c
+INNER JOIN reserves AS d ON c.sid <> d.sid AND c.day = d.day
+INNER JOIN sailors AS a ON d.sid = a.sid;
